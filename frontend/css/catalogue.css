@@ -1,0 +1,163 @@
+/* ========================
+   EN-TÊTE PAGE CATALOGUE
+======================== */
+.page-entete {
+  padding: 80px 60px 60px;
+  background-image: url('../images/fond-hero.jpg');
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+}
+
+.page-entete::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 249, 246, 0.85);
+  z-index: 0;
+}
+
+.page-entete-contenu {
+  position: relative;
+  z-index: 1;
+}
+
+.page-entete h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 8px 0 16px;
+}
+
+.page-entete-desc {
+  font-size: 1rem;
+  color: #6b6560;
+  max-width: 480px;
+}
+
+/* ========================
+   BARRE DE FILTRES
+======================== */
+.barre-filtres {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: #fff;
+  border-bottom: 1px solid #e8e4dc;
+  border-top: 1px solid #e8e4dc;
+  position: sticky;
+  top: 69px;
+  z-index: 50;
+}
+
+.filtres-gauche {
+  display: flex;
+  gap: 8px;
+}
+
+.filtre-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 8px 20px;
+  background: transparent;
+  border: 1px solid #e8e4dc;
+  color: #6b6560;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.filtre-btn:hover {
+  border-color: #1a1a1a;
+  color: #1a1a1a;
+}
+
+.filtre-btn.actif {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #faf9f6;
+}
+
+.filtres-droite {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.filtre-select {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  color: #1a1a1a;
+  padding: 8px 16px;
+  border: 1px solid #e8e4dc;
+  background: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.compteur-resultats {
+  font-size: 0.78rem;
+  color: #6b6560;
+  white-space: nowrap;
+}
+
+/* ========================
+   GRILLE CATALOGUE
+======================== */
+.catalogue-contenu {
+  padding: 52px 60px 100px;
+}
+
+.grille-catalogue {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.carte-catalogue {
+  background: #fff;
+  border: 1px solid #e8e4dc;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.35s ease;
+}
+
+.carte-catalogue:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.09);
+}
+
+.carte-catalogue.masque {
+  display: none;
+}
+
+.cat-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  transition: transform 0.5s ease;
+}
+
+.carte-catalogue:hover .cat-img {
+  transform: scale(1.03);
+}
+
+/* Toiles supplémentaires */
+.toile-5 {
+  background: linear-gradient(135deg, #8b1a1a 0%, #c4432a 50%, #f5a070 100%);
+}
+.toile-6 {
+  background: linear-gradient(160deg, #3d2b1a 0%, #7a5c3a 50%, #c8a882 100%);
+}
+.toile-7 {
+  background: linear-gradient(180deg, #111 0%, #444 40%, #aaa 100%);
+}
+.toile-8 {
+  background: linear-gradient(135deg, #0d3b5e 0%, #1a6a8a 50%, #7ec8d8 100%);
+}
+.toile-9 {
+  background: linear-gradient(140deg, #2d1a0e 0%, #6b3a1a 40%, #b87a3a 70%, #e8c090 100%);
+}
+
+.cat-info { padding: 18px 20px 20px; }
