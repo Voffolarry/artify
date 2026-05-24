@@ -541,3 +541,264 @@ a {
   color: rgba(250,249,246,0.3);
   letter-spacing: 0.06em;
 }
+/* ============================================================
+   AJOUTS GLOBAUX — Responsive, Burger, Loader, Modale, Favori
+   ============================================================ */
+
+/* ---- Burger menu ---- */
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+}
+
+.nav-liens.ouvert {
+  display: flex !important;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0; right: 0;
+  background: rgba(250,249,246,0.98);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 60px;
+  border-bottom: 1px solid #e8e4dc;
+  gap: 1.2rem;
+  z-index: 200;
+}
+
+/* ---- Loader ---- */
+.loader-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  width: 100%;
+}
+
+.loader-anneau {
+  width: 36px; height: 36px;
+  border: 2px solid #e8e4dc;
+  border-top-color: #9c7c3c;
+  border-radius: 50%;
+  animation: tourner .7s linear infinite;
+}
+
+@keyframes tourner { to { transform: rotate(360deg); } }
+
+/* ---- Vide message ---- */
+.vide-msg {
+  padding: 3rem;
+  text-align: center;
+  color: #6b6560;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  grid-column: 1/-1;
+}
+
+/* ---- Favori bouton ---- */
+.btn-fav {
+  position: absolute;
+  top: .7rem; left: .7rem;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.4);
+  background: rgba(255,255,255,.8);
+  color: #aaa;
+  font-size: .85rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all .25s;
+  z-index: 2;
+}
+.btn-fav:hover, .btn-fav.fav-actif {
+  background: #fff;
+  border-color: #d4b06a;
+  color: #c0392b;
+}
+.cat-img { position: relative; }
+
+/* ---- Pagination ---- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  margin: 2.5rem 0 1rem;
+}
+.page-btn {
+  width: 36px; height: 36px;
+  border: 1px solid #e8e4dc;
+  background: #fff;
+  color: #6b6560;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .8rem;
+  cursor: pointer;
+  transition: all .25s;
+  border-radius: 2px;
+}
+.page-btn:hover, .page-btn.actif { background: #1a1a1a; border-color: #1a1a1a; color: #faf9f6; }
+.page-btn:disabled { opacity: .35; cursor: default; }
+
+/* ---- Modale générique ---- */
+#modale-overlay, #modale-artiste-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.7);
+  z-index: 1000;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+  display: none !important;
+}
+#modale-overlay.ouverte, #modale-artiste-overlay.ouverte {
+  opacity: 1 !important;
+  pointer-events: all;
+  display: flex !important;
+}
+
+.modale-detail {
+  background: #faf9f6;
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 2px;
+  position: relative;
+  transform: translateY(16px);
+  transition: transform .3s ease;
+  box-shadow: 0 40px 80px rgba(0,0,0,.3);
+}
+#modale-overlay.ouverte .modale-detail,
+#modale-artiste-overlay.ouverte .modale-detail { transform: translateY(0); }
+
+.modale-fermer {
+  position: absolute; top: 1rem; right: 1rem;
+  background: none; border: 1px solid #e8e4dc;
+  width: 32px; height: 32px; border-radius: 50%;
+  font-size: .9rem; cursor: pointer; color: #6b6560;
+  transition: all .25s; z-index: 10;
+  display: flex; align-items: center; justify-content: center;
+}
+.modale-fermer:hover { border-color: #1a1a1a; color: #1a1a1a; }
+
+.modale-img {
+  width: 100%; height: 340px;
+  object-fit: cover;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.modale-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.modale-info { padding: 2rem 2rem 1.5rem; }
+.modale-titre {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-style: italic; font-weight: 400;
+  color: #1a1a1a; margin: .4rem 0 .3rem;
+}
+.modale-artiste { font-size: .78rem; color: #9c7c3c; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem; }
+.modale-sep { border: none; border-top: 1px solid #e8e4dc; margin: 1rem 0; }
+.modale-desc { color: #4a4540; line-height: 1.8; font-size: .95rem; margin-bottom: 1.2rem; }
+.modale-details { display: grid; grid-template-columns: repeat(3,1fr); gap: .8rem; margin-bottom: 1.5rem; }
+.modale-detail label { font-size: .62rem; text-transform: uppercase; letter-spacing: .12em; color: #9c7c3c; display: block; margin-bottom: .2rem; }
+.modale-detail span { font-size: .88rem; color: #1a1a1a; }
+.modale-pied { display: flex; justify-content: space-between; align-items: center; padding-top: 1.2rem; border-top: 1px solid #e8e4dc; }
+.modale-prix { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #9c7c3c; }
+
+/* ---- Erreur formulaire ---- */
+.form-erreur {
+  background: #fdf0ef;
+  border: 1px solid #e8a09a;
+  color: #8b1a1a;
+  padding: .7rem 1rem;
+  font-size: .82rem;
+  border-radius: 2px;
+  margin-bottom: .5rem;
+}
+
+/* ---- Avatar initiales ---- */
+.profil-avatar {
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-style: italic; color: rgba(255,255,255,.9);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .navbar { padding: 16px 32px; }
+  .hero { padding: 60px 32px; grid-template-columns: 1fr; min-height: auto; gap: 40px; }
+  .hero-image { max-width: 420px; margin: 0 auto; }
+  .stats-bande { padding: 36px 32px; flex-wrap: wrap; gap: 24px; }
+  .stat { padding: 0 24px; }
+  .section-vedette, .section-artistes { padding: 72px 32px; }
+  .grille-oeuvres { grid-template-columns: 1fr 1fr; }
+  .carte-oeuvre.grande { grid-row: auto; }
+  .pied-haut { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .pied-marque { grid-column: 1/-1; }
+  .profil-contenu { padding: 40px 32px; }
+  .profil-entete { padding: 40px 32px; }
+}
+
+@media (max-width: 768px) {
+  .burger { display: block; }
+  .nav-liens:not(.ouvert) { display: none; }
+  .navbar { position: sticky; }
+
+  .hero { background-attachment: scroll; padding: 48px 20px 40px; }
+  .section-artistes { background-attachment: scroll; }
+  .hero-texte h1 { font-size: 2.4rem; }
+  .hero-image { display: none; }
+
+  .stats-bande { flex-direction: column; align-items: center; gap: 20px; padding: 32px 20px; }
+  .separateur { display: none; }
+
+  .grille-oeuvres { grid-template-columns: 1fr; }
+  .grille-artistes { grid-template-columns: 1fr 1fr; }
+  .section-vedette, .section-artistes { padding: 52px 20px; }
+  .section-entete { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+  .pied-page { padding: 48px 20px 24px; }
+  .pied-haut { grid-template-columns: 1fr; gap: 24px; }
+
+  .barre-filtres { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px 20px; position: static; }
+  .filtres-droite { width: 100%; justify-content: space-between; }
+  .catalogue-contenu { padding: 32px 20px 60px; }
+  .grille-catalogue { grid-template-columns: 1fr 1fr; }
+
+  .artiste-vedette { grid-template-columns: 1fr; padding: 52px 20px; gap: 32px; }
+  .vedette-portrait { max-width: 260px; margin: 0 auto; }
+  .grille-tous-artistes { grid-template-columns: 1fr; }
+  .section-tous-artistes { padding: 52px 20px; }
+  .page-entete { padding: 60px 20px 40px; }
+
+  .profil-entete { padding: 32px 20px; }
+  .profil-entete-inner { flex-direction: column; text-align: center; gap: 16px; }
+  .profil-contenu { padding: 32px 20px; }
+  .profil-stats { grid-template-columns: 1fr 1fr; }
+  .grille-profil { grid-template-columns: 1fr; }
+
+  .login-page { grid-template-columns: 1fr; height: auto; min-height: 100vh; }
+  .login-gauche { display: none; }
+  .login-droite { padding: 32px 20px; }
+  body.login-body { overflow: auto; }
+
+  .modale-detail { margin: 0 0; border-radius: 0; max-height: 100vh; }
+  #modale-overlay, #modale-artiste-overlay { padding: 0; align-items: flex-end; }
+  .modale-details { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .grille-catalogue { grid-template-columns: 1fr; }
+  .grille-artistes  { grid-template-columns: 1fr; }
+  .profil-stats     { grid-template-columns: 1fr 1fr; }
+  .champ-double     { grid-template-columns: 1fr; }
+  .filtres-gauche   { flex-wrap: wrap; }
+}

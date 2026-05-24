@@ -242,3 +242,20 @@
   border-bottom: 1px solid #9c7c3c;
   padding-bottom: 2px;
 }
+/* ---- Portrait responsive ---- */
+.artiste-portrait img { width:100%;height:100%;object-fit:cover; }
+
+/* ---- Grille 3 col par défaut ---- */
+.grille-tous-artistes { display:grid;grid-template-columns:repeat(3,1fr);gap:24px; }
+
+/* ---- Lien actif ---- */
+.nav-liens a.actif { color:#1a1a1a;border-bottom:1px solid #9c7c3c;padding-bottom:2px; }
+
+@media (max-width: 900px) {
+  .grille-tous-artistes { grid-template-columns: 1fr 1fr; }
+  .artiste-vedette { padding: 52px 32px; gap: 40px; }
+}
+@media (max-width: 600px) {
+  .grille-tous-artistes { grid-template-columns: 1fr; }
+  .artiste-vedette { grid-template-columns: 1fr; padding: 40px 20px; }
+}

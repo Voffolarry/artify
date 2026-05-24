@@ -10,53 +10,58 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <header class="navbar">
     <a href="index.html" class="logo">Artify</a>
-    <nav class="nav-liens">
+    <button class="burger" id="burger">&#9776;</button>
+    <nav class="nav-liens" id="nav-liens">
       <a href="catalogue.html">Catalogue</a>
       <a href="artiste.html">Artistes</a>
-      <a href="login.html">Déconnexion</a>
+      <a href="#" onclick="deconnexion()">Déconnexion</a>
     </nav>
   </header>
 
   <!-- EN-TÊTE PROFIL -->
   <section class="profil-entete">
     <div class="profil-entete-inner">
-      <div class="profil-avatar av2"></div>
+      <div class="profil-avatar av2" id="profil-avatar">
+        <span id="profil-initiales"></span>
+      </div>
       <div class="profil-identite">
         <p class="profil-label">Mon compte</p>
-        <h1>Marie Dupont</h1>
-        <p class="profil-info">marie.dupont@exemple.com · Membre depuis janvier 2024</p>
+        <h1 id="profil-nom">Chargement…</h1>
+        <p class="profil-info">
+          <span id="profil-email"></span>
+          <span id="profil-depuis"></span>
+        </p>
       </div>
-      <button class="btn-modifier">Modifier le profil</button>
+      <button class="btn-modifier" onclick="basculerOnglet('parametres')">Modifier le profil</button>
     </div>
   </section>
 
-  <!-- CONTENU PROFIL -->
+  <!-- CONTENU -->
   <section class="profil-contenu">
 
-    <!-- STATS PROFIL -->
+    <!-- STATS -->
     <div class="profil-stats">
       <div class="profil-stat">
-        <strong>7</strong>
+        <strong id="stat-achats">—</strong>
         <span>Œuvres achetées</span>
       </div>
       <div class="profil-stat">
-        <strong>14</strong>
+        <strong id="stat-favoris">—</strong>
         <span>Favoris</span>
       </div>
       <div class="profil-stat">
-        <strong>3</strong>
+        <strong id="stat-artistes">—</strong>
         <span>Artistes suivis</span>
       </div>
       <div class="profil-stat">
-        <strong>12 840 €</strong>
+        <strong id="stat-total">—</strong>
         <span>Total investi</span>
       </div>
     </div>
 
-    <!-- ONGLETS CONTENU -->
+    <!-- ONGLETS -->
     <div class="profil-onglets">
       <button class="profil-onglet actif" data-cible="achats">Mes achats</button>
       <button class="profil-onglet" data-cible="favoris">Mes favoris</button>
@@ -65,153 +70,86 @@
 
     <!-- SECTION ACHATS -->
     <div class="profil-section" id="achats">
-      <div class="grille-profil">
-
-        <div class="carte-achat">
-          <div class="achat-img toile-1"></div>
-          <div class="achat-info">
-            <span class="carte-medium">Huile sur toile</span>
-            <h3 class="carte-titre">Horizons dorés</h3>
-            <p class="carte-artiste">Mofor Marielina</p>
-            <div class="carte-pied">
-              <span class="carte-prix">2 400 €</span>
-              <span class="achat-date">Mars 2024</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="carte-achat">
-          <div class="achat-img toile-2"></div>
-          <div class="achat-info">
-            <span class="carte-medium">Aquarelle</span>
-            <h3 class="carte-titre">Mémoire bleue</h3>
-            <p class="carte-artiste">Lina Ferreira</p>
-            <div class="carte-pied">
-              <span class="carte-prix">890 €</span>
-              <span class="achat-date">Fév. 2024</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="carte-achat">
-          <div class="achat-img toile-4"></div>
-          <div class="achat-info">
-            <span class="carte-medium">Acrylique</span>
-            <h3 class="carte-titre">Forêt intérieure</h3>
-            <p class="carte-artiste">Clara Mensah</p>
-            <div class="carte-pied">
-              <span class="carte-prix">1 750 €</span>
-              <span class="achat-date">Jan. 2024</span>
-            </div>
-          </div>
-        </div>
-
+      <div class="grille-profil" id="grille-achats">
+        <div class="loader-art"><div class="loader-anneau"></div></div>
       </div>
     </div>
 
     <!-- SECTION FAVORIS -->
     <div class="profil-section cache" id="favoris">
-      <div class="grille-profil">
-
-        <div class="carte-achat">
-          <div class="achat-img toile-5"></div>
-          <div class="achat-info">
-            <span class="carte-medium">Huile sur toile</span>
-            <h3 class="carte-titre">Crépuscule rouge</h3>
-            <p class="carte-artiste">Amara Diallo</p>
-            <div class="carte-pied">
-              <span class="carte-prix">3 100 €</span>
-              <span class="disponible">Disponible</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="carte-achat">
-          <div class="achat-img toile-8"></div>
-          <div class="achat-info">
-            <span class="carte-medium">Aquarelle</span>
-            <h3 class="carte-titre">Saison des pluies</h3>
-            <p class="carte-artiste">Lina Ferreira</p>
-            <div class="carte-pied">
-              <span class="carte-prix">720 €</span>
-              <span class="vendu">Vendu</span>
-            </div>
-          </div>
-        </div>
-
+      <div class="grille-profil" id="grille-favoris">
+        <div class="loader-art"><div class="loader-anneau"></div></div>
       </div>
     </div>
 
     <!-- SECTION PARAMÈTRES -->
     <div class="profil-section cache" id="parametres">
       <div class="parametres-wrap">
-
         <div class="param-groupe">
           <h3>Informations personnelles</h3>
           <div class="champ-double">
             <div class="champ">
               <label>Prénom</label>
-              <input type="text" value="Marie" />
+              <input type="text" id="param-prenom" placeholder="Prénom" />
             </div>
             <div class="champ">
               <label>Nom</label>
-              <input type="text" value="Dupont" />
+              <input type="text" id="param-nom" placeholder="Nom" />
             </div>
           </div>
           <div class="champ">
             <label>Adresse email</label>
-            <input type="email" value="marie.dupont@exemple.com" />
+            <input type="email" id="param-email" placeholder="email@exemple.com" />
           </div>
+          <button class="btn-soumettre" id="btn-enregistrer">Enregistrer les modifications</button>
         </div>
 
         <div class="param-groupe">
           <h3>Changer le mot de passe</h3>
           <div class="champ">
             <label>Mot de passe actuel</label>
-            <input type="password" placeholder="••••••••" />
+            <input type="password" id="ancien-mdp" placeholder="••••••••" />
           </div>
           <div class="champ">
             <label>Nouveau mot de passe</label>
-            <input type="password" placeholder="••••••••" />
+            <input type="password" id="nouveau-mdp" placeholder="Minimum 8 caractères" />
           </div>
+          <button class="btn-soumettre" id="btn-mdp">Changer le mot de passe</button>
         </div>
 
-        <button class="btn-soumettre">Enregistrer les modifications</button>
-
+        <div class="param-groupe param-danger">
+          <h3>Zone de danger</h3>
+          <button class="btn-secondaire-danger" onclick="deconnexion()">Se déconnecter</button>
+        </div>
       </div>
     </div>
 
   </section>
 
-  <!-- FOOTER -->
   <footer class="pied-page">
     <div class="pied-haut">
-      <div class="pied-marque">
-        <span class="logo">Artify</span>
-        <p>Une galerie d'art en ligne dédiée à la création contemporaine.</p>
-      </div>
-      <div class="pied-liens">
-        <h4>Galerie</h4>
-        <a href="catalogue.html">Catalogue</a>
-        <a href="artiste.html">Artistes</a>
-      </div>
-      <div class="pied-liens">
-        <h4>Compte</h4>
-        <a href="profil.html">Mon profil</a>
-        <a href="login.html">Déconnexion</a>
-      </div>
-      <div class="pied-liens">
-        <h4>Infos</h4>
-        <a href="#">À propos</a>
-        <a href="#">Contact</a>
-      </div>
+      <div class="pied-marque"><span class="logo">Artify</span><p>Une galerie d'art en ligne dédiée à la création contemporaine.</p></div>
+      <div class="pied-liens"><h4>Galerie</h4><a href="catalogue.html">Catalogue</a><a href="artiste.html">Artistes</a></div>
+      <div class="pied-liens"><h4>Compte</h4><a href="profil.html">Mon profil</a><a href="#" onclick="deconnexion()">Déconnexion</a></div>
+      <div class="pied-liens"><h4>Infos</h4><a href="#">À propos</a><a href="#">Contact</a></div>
     </div>
-    <div class="pied-bas">
-      <span>© 2025 Artify. Tous droits réservés.</span>
-    </div>
+    <div class="pied-bas"><span>© 2026 Artify. Tous droits réservés.</span></div>
   </footer>
 
   <script src="js/main.js"></script>
   <script src="js/profil.js"></script>
+  <script>
+    document.getElementById('burger').addEventListener('click', () =>
+      document.getElementById('nav-liens').classList.toggle('ouvert'));
+
+    function basculerOnglet(cible) {
+      document.querySelectorAll('.profil-onglet').forEach(o => o.classList.remove('actif'));
+      document.querySelectorAll('.profil-section').forEach(s => s.classList.add('cache'));
+      const btn = document.querySelector(`.profil-onglet[data-cible="${cible}"]`);
+      if (btn) btn.classList.add('actif');
+      const sec = document.getElementById(cible);
+      if (sec) sec.classList.remove('cache');
+    }
+  </script>
 </body>
 </html>
