@@ -161,3 +161,34 @@
 }
 
 .cat-info { padding: 18px 20px 20px; }
+/* ---- Filtres statut (petits boutons) ---- */
+.filtres-statut { display: flex; gap: 6px; }
+.filtre-sm {
+  font-size: .72rem !important;
+  padding: 6px 12px !important;
+}
+
+/* ---- Grille par défaut 3 col ---- */
+.grille-catalogue { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+
+/* Toiles supplémentaires */
+.toile-5 { background: linear-gradient(135deg,#8b1a1a,#c4432a,#f5a070); }
+.toile-6 { background: linear-gradient(160deg,#3d2b1a,#7a5c3a,#c8a882); }
+.toile-7 { background: linear-gradient(180deg,#111,#444,#aaa); }
+.toile-8 { background: linear-gradient(135deg,#0d3b5e,#1a6a8a,#7ec8d8); }
+.toile-9 { background: linear-gradient(140deg,#2d1a0e,#6b3a1a,#b87a3a,#e8c090); }
+
+/* Images dans cat-img */
+.cat-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Lien actif navbar */
+.nav-liens a.actif { color: #1a1a1a; border-bottom: 1px solid #9c7c3c; padding-bottom: 2px; }
+
+@media (max-width: 900px) {
+  .grille-catalogue { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 540px) {
+  .grille-catalogue { grid-template-columns: 1fr; }
+  .filtres-gauche { gap: 6px; }
+  .filtre-btn { padding: 6px 12px; font-size: .72rem; }
+}

@@ -247,3 +247,10 @@ body {
   border-bottom: 1px solid #9c7c3c;
   padding-bottom: 2px;
 }
+/* ---- Responsive login ---- */
+@media (max-width: 768px) {
+  body { overflow: auto; }
+  .login-page { grid-template-columns: 1fr; height: auto; min-height: 100vh; padding-top: 65px; }
+  .login-gauche { display: none; }
+  .login-droite { padding: 40px 24px; min-height: calc(100vh - 65px); }
+}

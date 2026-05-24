@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon profil — Artify</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/profil.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">Artify</a>
+    <nav class="nav-liens">
+      <a href="catalogue.html">Catalogue</a>
+      <a href="artiste.html">Artistes</a>
+      <a href="login.html">Déconnexion</a>
+    </nav>
+  </header>
+
+  <!-- EN-TÊTE PROFIL -->
+  <section class="profil-entete">
+    <div class="profil-entete-inner">
+      <div class="profil-avatar av2"></div>
+      <div class="profil-identite">
+        <p class="profil-label">Mon compte</p>
+        <h1>Marie Dupont</h1>
+        <p class="profil-info">marie.dupont@exemple.com · Membre depuis janvier 2024</p>
+      </div>
+      <button class="btn-modifier">Modifier le profil</button>
+    </div>
+  </section>
+
+  <!-- CONTENU PROFIL -->
+  <section class="profil-contenu">
+
+    <!-- STATS PROFIL -->
+    <div class="profil-stats">
+      <div class="profil-stat">
+        <strong>7</strong>
+        <span>Œuvres achetées</span>
+      </div>
+      <div class="profil-stat">
+        <strong>14</strong>
+        <span>Favoris</span>
+      </div>
+      <div class="profil-stat">
+        <strong>3</strong>
+        <span>Artistes suivis</span>
+      </div>
+      <div class="profil-stat">
+        <strong>12 840 €</strong>
+        <span>Total investi</span>
+      </div>
+    </div>
+
+    <!-- ONGLETS CONTENU -->
+    <div class="profil-onglets">
+      <button class="profil-onglet actif" data-cible="achats">Mes achats</button>
+      <button class="profil-onglet" data-cible="favoris">Mes favoris</button>
+      <button class="profil-onglet" data-cible="parametres">Paramètres</button>
+    </div>
+
+    <!-- SECTION ACHATS -->
+    <div class="profil-section" id="achats">
+      <div class="grille-profil">
+
+        <div class="carte-achat">
+          <div class="achat-img toile-1"></div>
+          <div class="achat-info">
+            <span class="carte-medium">Huile sur toile</span>
+            <h3 class="carte-titre">Horizons dorés</h3>
+            <p class="carte-artiste">Mofor Marielina</p>
+            <div class="carte-pied">
+              <span class="carte-prix">2 400 €</span>
+              <span class="achat-date">Mars 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="carte-achat">
+          <div class="achat-img toile-2"></div>
+          <div class="achat-info">
+            <span class="carte-medium">Aquarelle</span>
+            <h3 class="carte-titre">Mémoire bleue</h3>
+            <p class="carte-artiste">Lina Ferreira</p>
+            <div class="carte-pied">
+              <span class="carte-prix">890 €</span>
+              <span class="achat-date">Fév. 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="carte-achat">
+          <div class="achat-img toile-4"></div>
+          <div class="achat-info">
+            <span class="carte-medium">Acrylique</span>
+            <h3 class="carte-titre">Forêt intérieure</h3>
+            <p class="carte-artiste">Clara Mensah</p>
+            <div class="carte-pied">
+              <span class="carte-prix">1 750 €</span>
+              <span class="achat-date">Jan. 2024</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SECTION FAVORIS -->
+    <div class="profil-section cache" id="favoris">
+      <div class="grille-profil">
+
+        <div class="carte-achat">
+          <div class="achat-img toile-5"></div>
+          <div class="achat-info">
+            <span class="carte-medium">Huile sur toile</span>
+            <h3 class="carte-titre">Crépuscule rouge</h3>
+            <p class="carte-artiste">Amara Diallo</p>
+            <div class="carte-pied">
+              <span class="carte-prix">3 100 €</span>
+              <span class="disponible">Disponible</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="carte-achat">
+          <div class="achat-img toile-8"></div>
+          <div class="achat-info">
+            <span class="carte-medium">Aquarelle</span>
+            <h3 class="carte-titre">Saison des pluies</h3>
+            <p class="carte-artiste">Lina Ferreira</p>
+            <div class="carte-pied">
+              <span class="carte-prix">720 €</span>
+              <span class="vendu">Vendu</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SECTION PARAMÈTRES -->
+    <div class="profil-section cache" id="parametres">
+      <div class="parametres-wrap">
+
+        <div class="param-groupe">
+          <h3>Informations personnelles</h3>
+          <div class="champ-double">
+            <div class="champ">
+              <label>Prénom</label>
+              <input type="text" value="Marie" />
+            </div>
+            <div class="champ">
+              <label>Nom</label>
+              <input type="text" value="Dupont" />
+            </div>
+          </div>
+          <div class="champ">
+            <label>Adresse email</label>
+            <input type="email" value="marie.dupont@exemple.com" />
+          </div>
+        </div>
+
+        <div class="param-groupe">
+          <h3>Changer le mot de passe</h3>
+          <div class="champ">
+            <label>Mot de passe actuel</label>
+            <input type="password" placeholder="••••••••" />
+          </div>
+          <div class="champ">
+            <label>Nouveau mot de passe</label>
+            <input type="password" placeholder="••••••••" />
+          </div>
+        </div>
+
+        <button class="btn-soumettre">Enregistrer les modifications</button>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pied-page">
+    <div class="pied-haut">
+      <div class="pied-marque">
+        <span class="logo">Artify</span>
+        <p>Une galerie d'art en ligne dédiée à la création contemporaine.</p>
+      </div>
+      <div class="pied-liens">
+        <h4>Galerie</h4>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="artiste.html">Artistes</a>
+      </div>
+      <div class="pied-liens">
+        <h4>Compte</h4>
+        <a href="profil.html">Mon profil</a>
+        <a href="login.html">Déconnexion</a>
+      </div>
+      <div class="pied-liens">
+        <h4>Infos</h4>
+        <a href="#">À propos</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="pied-bas">
+      <span>© 2025 Artify. Tous droits réservés.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/profil.js"></script>
+</body>
+</html>

@@ -1,0 +1,543 @@
+/* ========================
+   RESET & BASE
+======================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  background-color: #faf9f6;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ========================
+   NAVBAR
+======================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background-color: rgba(250, 249, 246, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e8e4dc;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.03em;
+}
+
+.nav-liens {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-liens a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b6560;
+  transition: color 0.25s;
+}
+
+.nav-liens a:hover { color: #1a1a1a; }
+
+/* ========================
+   HERO — AVEC IMAGE DE FOND
+======================== */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 88vh;
+  padding: 80px 60px;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+
+  /* ─── TON IMAGE DE FOND ─── */
+  background-image: url('../images/fond-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Voile clair par-dessus l'image pour que le texte reste lisible */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 249, 246, 0.80);
+  z-index: 0;
+}
+
+/* Tout le contenu du hero passe au-dessus du voile */
+.hero-texte,
+.hero-image {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-texte {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #9c7c3c;
+  border: 1px solid #d4b06a;
+  padding: 6px 16px;
+  border-radius: 2px;
+  width: fit-content;
+}
+
+.hero-texte h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #1a1a1a;
+}
+
+.hero-texte h1 em {
+  font-style: italic;
+  color: #9c7c3c;
+}
+
+.hero-texte p {
+  font-size: 1.05rem;
+  color: #4a4540;
+  max-width: 420px;
+  line-height: 1.75;
+}
+
+.hero-boutons {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.btn-principal {
+  display: inline-block;
+  padding: 14px 36px;
+  background-color: #1a1a1a;
+  color: #faf9f6;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 2px solid #1a1a1a;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-principal:hover {
+  background-color: transparent;
+  color: #1a1a1a;
+}
+
+.btn-secondaire {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #4a4540;
+  font-family: 'Playfair Display', serif;
+  transition: color 0.25s;
+}
+
+.btn-secondaire:hover { color: #1a1a1a; }
+
+/* Cadre tableau dans le hero */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-cadre {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  border: 1px solid #d4c9b0;
+  padding: 12px;
+  background: #fff;
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.12);
+}
+
+.hero-toile {
+  width: 100%;
+  height: 420px;
+  background: linear-gradient(135deg, #2a1a0e 0%, #8b4513 35%, #d4853a 65%, #f5deb3 100%);
+}
+
+.hero-etiquette {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 8px 6px;
+}
+
+.etiquette-titre {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: #1a1a1a;
+}
+
+.etiquette-artiste {
+  font-size: 0.75rem;
+  color: #6b6560;
+}
+
+.etiquette-prix {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #9c7c3c;
+  margin-top: 4px;
+}
+
+/* ========================
+   STATS
+======================== */
+.stats-bande {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 60px;
+  background-color: #1a1a1a;
+  color: #faf9f6;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0 60px;
+}
+
+.stat strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #d4b06a;
+}
+
+.stat span {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(250,249,246,0.5);
+}
+
+.separateur {
+  width: 1px;
+  height: 48px;
+  background-color: rgba(250,249,246,0.15);
+}
+
+/* ========================
+   SECTIONS
+======================== */
+.section-vedette {
+  padding: 100px 60px;
+}
+
+.section-artistes {
+  padding: 100px 60px;
+  position: relative;
+
+  /* ─── TON IMAGE DE FOND ─── */
+  background-image: url('../images/fond-artistes.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.section-artistes::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(242, 237, 228, 0.90);
+  z-index: 0;
+}
+
+.section-artistes .section-entete,
+.grille-artistes {
+  position: relative;
+  z-index: 1;
+}
+
+.section-entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 52px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e4dc;
+}
+
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9c7c3c;
+  margin-bottom: 8px;
+}
+
+.section-entete h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.lien-voir-plus {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #6b6560;
+  transition: color 0.25s;
+  white-space: nowrap;
+}
+
+.lien-voir-plus:hover { color: #1a1a1a; }
+
+/* ========================
+   GRILLE OEUVRES
+======================== */
+.grille-oeuvres {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+.carte-oeuvre {
+  background: #fff;
+  border: 1px solid #e8e4dc;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.carte-oeuvre:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+}
+
+.carte-oeuvre.grande { grid-row: span 2; }
+
+.carte-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  transition: transform 0.5s ease;
+}
+
+.carte-oeuvre.grande .carte-img { aspect-ratio: 2 / 3; }
+.carte-oeuvre:hover .carte-img { transform: scale(1.03); }
+
+.toile-1 {
+  background: linear-gradient(140deg, #b8890a 0%, #e6b84a 40%, #f5e6a0 70%, #c4802a 100%);
+}
+.toile-2 {
+  background: linear-gradient(160deg, #1a4a7a 0%, #2e7db5 50%, #a8d4f0 100%);
+}
+.toile-3 {
+  background: linear-gradient(180deg, #2d2d2d 0%, #7a7a7a 50%, #e0d8cc 100%);
+}
+.toile-4 {
+  background: linear-gradient(135deg, #1a3d1a 0%, #3a7a3a 40%, #8bc48b 70%, #c8e6c8 100%);
+}
+
+.carte-info { padding: 18px 20px 20px; }
+
+.carte-medium {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9c7c3c;
+}
+
+.carte-titre {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 6px 0 4px;
+}
+
+.carte-artiste {
+  font-size: 0.78rem;
+  color: #6b6560;
+}
+
+.carte-pied {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #e8e4dc;
+}
+
+.carte-prix {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.disponible {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #3a6b3a;
+}
+
+.vendu {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #9b3a2a;
+}
+
+/* ========================
+   ARTISTES
+======================== */
+.grille-artistes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.carte-artiste {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 36px 20px;
+  background: #fff;
+  border: 1px solid #e8e4dc;
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.carte-artiste:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+}
+
+.artiste-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #e8e4dc;
+}
+
+.av1 { background: linear-gradient(135deg, #c4802a, #e6b84a); }
+.av2 { background: linear-gradient(135deg, #2e7db5, #a8d4f0); }
+.av3 { background: linear-gradient(135deg, #4a4a4a, #9a9a9a); }
+.av4 { background: linear-gradient(135deg, #3a7a3a, #8bc48b); }
+
+.carte-artiste h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 400;
+  color: #1a1a1a;
+}
+
+.carte-artiste p {
+  font-size: 0.75rem;
+  color: #6b6560;
+}
+
+/* ========================
+   FOOTER
+======================== */
+.pied-page {
+  background-color: #111;
+  color: #faf9f6;
+  padding: 72px 60px 32px;
+}
+
+.pied-haut {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 60px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.pied-marque .logo {
+  display: block;
+  margin-bottom: 16px;
+  color: #faf9f6;
+}
+
+.pied-marque p {
+  font-size: 0.85rem;
+  color: rgba(250,249,246,0.45);
+  line-height: 1.7;
+  max-width: 280px;
+}
+
+.pied-liens {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pied-liens h4 {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d4b06a;
+  margin-bottom: 6px;
+}
+
+.pied-liens a {
+  font-size: 0.85rem;
+  color: rgba(250,249,246,0.5);
+  transition: color 0.25s;
+}
+
+.pied-liens a:hover { color: #faf9f6; }
+
+.pied-bas {
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(250,249,246,0.3);
+  letter-spacing: 0.06em;
+}

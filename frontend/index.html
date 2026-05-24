@@ -12,10 +12,11 @@
   <!-- NAVIGATION -->
   <header class="navbar">
     <a href="index.html" class="logo">Artify</a>
-    <nav class="nav-liens">
+    <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+    <nav class="nav-liens" id="nav-liens">
       <a href="catalogue.html">Catalogue</a>
       <a href="artiste.html">Artistes</a>
-      <a href="login.html">Connexion</a>
+      <a href="login.html" id="nav-login">Connexion</a>
     </nav>
   </header>
 
@@ -31,12 +32,12 @@
       </div>
     </div>
     <div class="hero-image">
-      <div class="hero-cadre">
-        <div class="hero-toile"></div>
+      <div class="hero-cadre" id="hero-cadre">
+        <div class="hero-toile" id="hero-toile"></div>
         <div class="hero-etiquette">
-          <span class="etiquette-titre">Automne en grand</span>
-          <span class="etiquette-artiste">Mofor Marielina — 2024</span>
-          <span class="etiquette-prix">1 200 €</span>
+          <span class="etiquette-titre" id="hero-titre">Chargement…</span>
+          <span class="etiquette-artiste" id="hero-artiste"></span>
+          <span class="etiquette-prix" id="hero-prix"></span>
         </div>
       </div>
     </div>
@@ -45,22 +46,22 @@
   <!-- STATS -->
   <section class="stats-bande">
     <div class="stat">
-      <strong>340+</strong>
+      <strong id="stat-oeuvres">—</strong>
       <span>Œuvres disponibles</span>
     </div>
     <div class="separateur"></div>
     <div class="stat">
-      <strong>80</strong>
+      <strong id="stat-artistes">—</strong>
       <span>Artistes référencés</span>
     </div>
     <div class="separateur"></div>
     <div class="stat">
-      <strong>12</strong>
+      <strong id="stat-pays">—</strong>
       <span>Pays représentés</span>
     </div>
     <div class="separateur"></div>
     <div class="stat">
-      <strong>1 400+</strong>
+      <strong id="stat-collectionneurs">—</strong>
       <span>Collectionneurs</span>
     </div>
   </section>
@@ -74,61 +75,8 @@
       </div>
       <a href="catalogue.html" class="lien-voir-plus">Voir tout →</a>
     </div>
-
-    <div class="grille-oeuvres">
-
-      <div class="carte-oeuvre grande">
-        <div class="carte-img toile-1"></div>
-        <div class="carte-info">
-          <span class="carte-medium">Huile sur toile</span>
-          <h3 class="carte-titre">Horizons dorés</h3>
-          <p class="carte-artiste">Mofor Marielina</p>
-          <div class="carte-pied">
-            <span class="carte-prix">2 400 €</span>
-            <span class="disponible">Disponible</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="carte-oeuvre">
-        <div class="carte-img toile-2"></div>
-        <div class="carte-info">
-          <span class="carte-medium">Aquarelle</span>
-          <h3 class="carte-titre">Mémoire bleue</h3>
-          <p class="carte-artiste">Lina Ferreira</p>
-          <div class="carte-pied">
-            <span class="carte-prix">890 €</span>
-            <span class="disponible">Disponible</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="carte-oeuvre">
-        <div class="carte-img toile-3"></div>
-        <div class="carte-info">
-          <span class="carte-medium">Photographie</span>
-          <h3 class="carte-titre">Lumière rasante</h3>
-          <p class="carte-artiste">Kenji Mori</p>
-          <div class="carte-pied">
-            <span class="carte-prix">640 €</span>
-            <span class="vendu">Vendu</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="carte-oeuvre">
-        <div class="carte-img toile-4"></div>
-        <div class="carte-info">
-          <span class="carte-medium">Acrylique</span>
-          <h3 class="carte-titre">Forêt intérieure</h3>
-          <p class="carte-artiste">Clara Mensah</p>
-          <div class="carte-pied">
-            <span class="carte-prix">1 750 €</span>
-            <span class="disponible">Disponible</span>
-          </div>
-        </div>
-      </div>
-
+    <div class="grille-oeuvres" id="grille-vedette">
+      <div class="loader-art" style="grid-column:1/-1;"><div class="loader-anneau"></div></div>
     </div>
   </section>
 
@@ -141,27 +89,8 @@
       </div>
       <a href="artiste.html" class="lien-voir-plus">Tous les artistes →</a>
     </div>
-    <div class="grille-artistes">
-      <a href="artiste.html" class="carte-artiste">
-        <div class="artiste-avatar av1"></div>
-        <h3>Mofor Marielina</h3>
-        <p>Peinture contemporaine · Cameroun</p>
-      </a>
-      <a href="artiste.html" class="carte-artiste">
-        <div class="artiste-avatar av2"></div>
-        <h3>Lina Ferreira</h3>
-        <p>Aquarelle · Brésil</p>
-      </a>
-      <a href="artiste.html" class="carte-artiste">
-        <div class="artiste-avatar av3"></div>
-        <h3>Kenji Mori</h3>
-        <p>Photographie · Japon</p>
-      </a>
-      <a href="artiste.html" class="carte-artiste">
-        <div class="artiste-avatar av4"></div>
-        <h3>Clara Mensah</h3>
-        <p>Acrylique · Ghana</p>
-      </a>
+    <div class="grille-artistes" id="grille-artistes">
+      <div class="loader-art" style="grid-column:1/-1;"><div class="loader-anneau"></div></div>
     </div>
   </section>
 
@@ -189,10 +118,127 @@
       </div>
     </div>
     <div class="pied-bas">
-      <span>© 2025 Artify. Tous droits réservés.</span>
+      <span>© 2026 Artify. Tous droits réservés.</span>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+  // ---- Menu burger ----
+  document.getElementById('burger').addEventListener('click', () => {
+    document.getElementById('nav-liens').classList.toggle('ouvert');
+  });
+
+  // ---- Stats depuis API ----
+  async function chargerStats() {
+    try {
+      const d = await apiFetch('/stats/index.php');
+      const map = { oeuvres:'stat-oeuvres', artistes:'stat-artistes', pays:'stat-pays', collectionneurs:'stat-collectionneurs' };
+      Object.entries(map).forEach(([k, id]) => {
+        const el = document.getElementById(id);
+        if (el && d[k] !== undefined) animerCompteur(el, d[k]);
+      });
+    } catch {
+      ['stat-oeuvres','stat-artistes','stat-pays','stat-collectionneurs'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = '—';
+      });
+    }
+  }
+
+  // ---- Oeuvres vedette ----
+  const couleurs = [
+    'linear-gradient(140deg,#b8890a,#e6b84a,#f5e6a0,#c4802a)',
+    'linear-gradient(160deg,#1a4a7a,#2e7db5,#a8d4f0)',
+    'linear-gradient(180deg,#2d2d2d,#7a7a7a,#e0d8cc)',
+    'linear-gradient(135deg,#1a3d1a,#3a7a3a,#8bc48b,#c8e6c8)',
+  ];
+
+  async function chargerVedette() {
+    const grille = document.getElementById('grille-vedette');
+    try {
+      const d = await apiFetch('/oeuvres/index.php?statut=disponible&limite=4&tri=recent');
+      const oeuvres = d.oeuvres || [];
+      grille.innerHTML = oeuvres.map((o, i) => {
+        const artiste = o.artiste ? `${o.artiste.prenom} ${o.artiste.nom}` : '';
+        const bg = o.image_url ? '' : `style="background:${couleurs[i%couleurs.length]}"`;
+        const img = o.image_url ? `<img src="${o.image_url}" alt="${o.titre}" style="width:100%;height:100%;object-fit:cover;" loading="lazy">` : '';
+        const grande = i === 0 ? ' grande' : '';
+        return `
+          <div class="carte-oeuvre${grande}" onclick="location.href='catalogue.html?id=${o._id}'">
+            <div class="carte-img" ${bg}>${img}</div>
+            <div class="carte-info">
+              <span class="carte-medium">${o.medium||''}</span>
+              <h3 class="carte-titre">${o.titre}</h3>
+              <p class="carte-artiste">${artiste}</p>
+              <div class="carte-pied">
+                <span class="carte-prix">${formatPrix(o.prix)}</span>
+                <span class="disponible">Disponible</span>
+              </div>
+            </div>
+          </div>`;
+      }).join('') || '<p class="vide-msg">Aucune œuvre disponible.</p>';
+
+      // Hero : première oeuvre
+      if (oeuvres[0]) {
+        const o = oeuvres[0];
+        document.getElementById('hero-titre').textContent   = o.titre;
+        document.getElementById('hero-prix').textContent    = formatPrix(o.prix);
+        if (o.artiste) document.getElementById('hero-artiste').textContent = o.artiste.prenom + ' ' + o.artiste.nom;
+        if (o.image_url) {
+          const toile = document.getElementById('hero-toile');
+          toile.style.background = '';
+          toile.innerHTML = `<img src="${o.image_url}" alt="${o.titre}" style="width:100%;height:100%;object-fit:cover;">`;
+        }
+      }
+      // Relancer animations
+      grille.querySelectorAll('.carte-oeuvre').forEach((el, i) => {
+        el.style.opacity = '0'; el.style.transform = 'translateY(28px)';
+        el.style.transition = `opacity .55s ease ${i*.1}s,transform .55s ease ${i*.1}s`;
+        observer.observe(el);
+      });
+    } catch(e) {
+      grille.innerHTML = '<p class="vide-msg">Impossible de charger les œuvres.</p>';
+    }
+  }
+
+  // ---- Artistes ----
+  async function chargerArtistes() {
+    const grille = document.getElementById('grille-artistes');
+    const gradients = [
+      'linear-gradient(135deg,#c4802a,#e6b84a)',
+      'linear-gradient(135deg,#2e7db5,#a8d4f0)',
+      'linear-gradient(135deg,#4a4a4a,#9a9a9a)',
+      'linear-gradient(135deg,#3a7a3a,#8bc48b)',
+    ];
+    try {
+      const d = await apiFetch('/artistes/index.php');
+      const artistes = (d.artistes || []).slice(0, 4);
+      grille.innerHTML = artistes.map((a, i) => {
+        const bg = gradients[i % gradients.length];
+        const img = a.photo_url ? `<img src="${a.photo_url}" alt="${a.prenom} ${a.nom}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">` : '';
+        return `
+          <a href="artiste.html" class="carte-artiste">
+            <div class="artiste-avatar" style="background:${bg};display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,.7);font-size:1.5rem;">${img || a.prenom[0]+a.nom[0]}</div>
+            <h3>${a.prenom} ${a.nom}</h3>
+            <p>${a.specialite||''} · ${a.pays||''}</p>
+          </a>`;
+      }).join('');
+      grille.querySelectorAll('.carte-artiste').forEach((el, i) => {
+        el.style.opacity = '0'; el.style.transform = 'translateY(28px)';
+        el.style.transition = `opacity .55s ease ${i*.1}s,transform .55s ease ${i*.1}s`;
+        observer.observe(el);
+      });
+    } catch {
+      grille.innerHTML = '<p class="vide-msg">Impossible de charger les artistes.</p>';
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    chargerStats();
+    chargerVedette();
+    chargerArtistes();
+  });
+  </script>
 </body>
 </html>
