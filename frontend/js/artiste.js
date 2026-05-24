@@ -51,8 +51,11 @@ async function chargerTousArtistes() {
   try {
     const data    = await apiFetch('/artistes/index.php');
     const artistes = data.artistes || [];
+    
+    // Exclure le premier (artiste du mois) car déjà affiché en vedette
+    const artistesReste = artistes.slice(1);
 
-    grille.innerHTML = artistes.map((a, i) => {
+    grille.innerHTML = artistesReste.map((a, i) => {
       const bg  = gradients[i % gradients.length];
       const photo = imageUrlAffichable(a.photo_url);
       const img = photo

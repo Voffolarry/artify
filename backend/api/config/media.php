@@ -25,8 +25,8 @@ const OEUVRE_IMAGE_FILES = [
 
 /** Clé "Prénom Nom" → fichier dans frontend/images/artistes/ */
 const ARTISTE_IMAGE_FILES = [
+    'Marielina Mofor' => 'marielina-mofor.jpg',
     'Isabelle Moreau' => 'isabelle-moreau.jpg',
-    'Carlos Santos'   => 'carlos-santos.jpg',
     'Yuki Nakamura'   => 'yuki-nakamura.jpg',
     'Amira El Fassi'  => 'amira-elfassi.jpg',
 ];
