@@ -40,20 +40,36 @@ if (!empty($_GET['id'])) {
     repondreOK($data);
 }
 
-// ---- Liste complète ----
-$curseur  = $col->find([], ['sort' => ['nom' => 1]]);
-$artistes = collectionVersTableau($curseur);
-
-// Ajouter le nb d'oeuvres pour chaque artiste
+// ---- Liste complète — artiste du mois en premier ----
 $colOeuvres = getCollection('oeuvres');
-foreach ($artistes as &$a) {
+$artistes   = [];
+
+// 1. Artiste du mois en premier
+$artisteDuMois = $col->findOne(['artiste_du_mois' => true]);
+if ($artisteDuMois) {
+    $a = objectIdVersString($artisteDuMois);
     try {
         $oid = new MongoDB\BSON\ObjectId($a['_id']);
         $a['nb_oeuvres'] = $colOeuvres->countDocuments(['artiste_id' => $oid]);
     } catch (Exception $e) {
         $a['nb_oeuvres'] = 0;
     }
+    $artistes[] = $a;
 }
-unset($a);
+
+// 2. Les autres triés alphabétiquement
+$curseurReste = $col->find(
+    ['artiste_du_mois' => ['$ne' => true]],
+    ['sort' => ['nom' => 1]]
+);
+foreach (collectionVersTableau($curseurReste) as $a) {
+    try {
+        $oid = new MongoDB\BSON\ObjectId($a['_id']);
+        $a['nb_oeuvres'] = $colOeuvres->countDocuments(['artiste_id' => $oid]);
+    } catch (Exception $e) {
+        $a['nb_oeuvres'] = 0;
+    }
+    $artistes[] = $a;
+}
 
 repondreOK(['artistes' => $artistes, 'total' => count($artistes)]);
