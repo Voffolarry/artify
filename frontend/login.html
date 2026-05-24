@@ -10,20 +10,18 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <header class="navbar">
     <a href="index.html" class="logo">Artify</a>
-    <nav class="nav-liens">
+    <button class="burger" id="burger">&#9776;</button>
+    <nav class="nav-liens" id="nav-liens">
       <a href="catalogue.html">Catalogue</a>
       <a href="artiste.html">Artistes</a>
       <a href="login.html" class="actif">Connexion</a>
     </nav>
   </header>
 
-  <!-- PAGE LOGIN -->
   <main class="login-page">
-
-    <!-- CÔTÉ GAUCHE — image -->
+    <!-- CÔTÉ GAUCHE -->
     <div class="login-gauche">
       <div class="login-overlay">
         <div class="login-citation">
@@ -33,13 +31,11 @@
       </div>
     </div>
 
-    <!-- CÔTÉ DROIT — formulaire -->
+    <!-- CÔTÉ DROIT -->
     <div class="login-droite">
       <div class="login-contenu">
-
         <a href="index.html" class="login-logo">Artify</a>
 
-        <!-- ONGLETS -->
         <div class="login-onglets">
           <button class="onglet actif" id="onglet-connexion">Connexion</button>
           <button class="onglet" id="onglet-inscription">Inscription</button>
@@ -49,11 +45,11 @@
         <div class="formulaire" id="form-connexion">
           <div class="champ">
             <label for="email-co">Adresse email</label>
-            <input type="email" id="email-co" placeholder="vous@exemple.com" />
+            <input type="email" id="email-co" placeholder="vous@exemple.com" autocomplete="email" />
           </div>
           <div class="champ">
             <label for="mdp-co">Mot de passe</label>
-            <input type="password" id="mdp-co" placeholder="••••••••" />
+            <input type="password" id="mdp-co" placeholder="••••••••" autocomplete="current-password" />
           </div>
           <div class="champ-option">
             <label class="checkbox-wrap">
@@ -62,12 +58,13 @@
             </label>
             <a href="#" class="lien-oubli">Mot de passe oublié ?</a>
           </div>
-          <button class="btn-soumettre" onclick="window.location.href='profil.html'">
-            Se connecter
-          </button>
+          <button class="btn-soumettre" id="btn-connexion">Se connecter</button>
           <p class="login-note">
             Pas encore de compte ?
             <a href="#" id="switch-inscription">Créer un compte</a>
+          </p>
+          <p class="login-note" style="margin-top:.5rem;font-size:.75rem;color:#9c7c3c;">
+            Compte test : marie@artify.fr / artify2026
           </p>
         </div>
 
@@ -76,34 +73,32 @@
           <div class="champ-double">
             <div class="champ">
               <label for="prenom">Prénom</label>
-              <input type="text" id="prenom" placeholder="Marie" />
+              <input type="text" id="prenom" placeholder="Marie" autocomplete="given-name" />
             </div>
             <div class="champ">
               <label for="nom">Nom</label>
-              <input type="text" id="nom" placeholder="Dupont" />
+              <input type="text" id="nom" placeholder="Dupont" autocomplete="family-name" />
             </div>
           </div>
           <div class="champ">
             <label for="email-ins">Adresse email</label>
-            <input type="email" id="email-ins" placeholder="vous@exemple.com" />
+            <input type="email" id="email-ins" placeholder="vous@exemple.com" autocomplete="email" />
           </div>
           <div class="champ">
             <label for="mdp-ins">Mot de passe</label>
-            <input type="password" id="mdp-ins" placeholder="Minimum 8 caractères" />
+            <input type="password" id="mdp-ins" placeholder="Minimum 8 caractères" autocomplete="new-password" />
           </div>
           <div class="champ">
             <label for="mdp-conf">Confirmer le mot de passe</label>
-            <input type="password" id="mdp-conf" placeholder="••••••••" />
+            <input type="password" id="mdp-conf" placeholder="••••••••" autocomplete="new-password" />
           </div>
           <div class="champ-option">
             <label class="checkbox-wrap">
-              <input type="checkbox" />
+              <input type="checkbox" id="cgu" />
               <span>J'accepte les <a href="#">conditions d'utilisation</a></span>
             </label>
           </div>
-          <button class="btn-soumettre" onclick="window.location.href='profil.html'">
-            Créer mon compte
-          </button>
+          <button class="btn-soumettre" id="btn-inscription">Créer mon compte</button>
           <p class="login-note">
             Déjà un compte ?
             <a href="#" id="switch-connexion">Se connecter</a>
@@ -112,10 +107,13 @@
 
       </div>
     </div>
-
   </main>
 
   <script src="js/main.js"></script>
   <script src="js/login.js"></script>
+  <script>
+    document.getElementById('burger').addEventListener('click', () =>
+      document.getElementById('nav-liens').classList.toggle('ouvert'));
+  </script>
 </body>
 </html>
