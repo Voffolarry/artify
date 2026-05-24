@@ -1,10 +1,11 @@
 <?php
 
+require_once __DIR__ . '/env.php';
 echo "Collections : (aucune — base vide ou non initialisée)\n";
 
 require 'vendor/autoload.php';
 
-$uri = "mongodb+srv://gillesalainwaffo_db_user:artify2026@artifydb.i27xaht.mongodb.net/?appName=Artifydb";
+$uri = artifyEnv('MONGO_URI');
 
 try {
 
